@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giffy Animals</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Animal Search</h1>
+
+    <!-- Gifs will Get Dumped Dere -->
+    <div id="gifs-view"></div>
+
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div>
+
+    <form id="gif-form">
+      <label for="gif-input">Add an animal</label>
+      <input type="text" id="gif-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-gif" type="submit" value="Add an animal">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Initial array of animals
+      var animals = ["dog", "cat", "squirrel", "frog"];
+
+      // Function for dumping the JSON content for each button into the div
+      function displayGifImages() {
+
+        var animal = $(this).attr("data-name");
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=uKbPHducH3lIMJpS3SQ3Qa3oqhcS4oSO&limit=10";
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          $("#gifs-view").text(JSON.stringify(response));
+          renderButtons();
+        });
+      }
+    //console.log(response);
+
+      // Function for displaying animal data
+      function renderButtons() {
+
+        // Deleting the buttons prior to adding new animals
+        // (this is necessary otherwise you will have repeat buttons)
+        $("#buttons-view").empty();
+
+        // Looping through the array of animals
+        for (var i = 0; i < animals.length; i++) {
+
+          // Then dynamically generating buttons for each animal in the array
+          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+          var a = $("<button>");
+          // Adding a class of animal to our button
+          a.addClass("animal");
+          // Adding a data-attribute
+          a.attr("data-name", animals[i]);
+          // Providing the initial button text
+          a.text(animals[i]);
+          // Adding the button to the buttons-view div
+          $("#buttons-view").append(a);
+        }
+      }
+
+      // This function handles events where one button is clicked
+      $("#add-gif").on("click", function(event) {
+        event.preventDefault();
+
+        // This line grabs the input from the textbox
+        var animal = $("#gif-input").val().trim();
+
+        // Adding the animal from the textbox to our array
+        animals.push(animal);
+        console.log(animals);
+
+        // Calling renderButtons which handles the processing of our animal array
+        renderButtons();
+      });
+
+      // Function for displaying the animal data
+      // Using $(document).on instead of $(".animal").on to add event listeners to dynamically generated elements
+      $(document).on("click", ".animal", displayGifImages);
+
+      // Calling the renderButtons function to display the initial buttons
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>

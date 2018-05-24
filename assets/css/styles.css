@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+.buttons-row{
+    padding: 10px;
+    width: 100%;
+    margin: 10px;
+}
+
+.right-column{
+    float: right;
+    width: 20%;
+}
+
+.left-column{
+    float: left;
+    width: 80%;
+}
+
+p {
+    margin: 5px;
+}
+
+input {
+    margin: 5px;
+}

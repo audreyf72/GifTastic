@@ -6,12 +6,25 @@
     <title>GifTastic Homework</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
 </head>
 <body>
-    <div class="buttons"></div>
-    <div id="textBox"></div>
-    <div class="images"></div>    
+        <div class="buttons-row">
+            <div id="buttons"></div>
+        </div>
+
+        <div class="left-column">
+            <div class="images"></div>    
+        </div>
+
+        <div class="right-column">
+            <p>Add an animal</p>
+            <input type="text" id="user-input"><br>
+            <input id="addGif" type="submit" value="Submit">
+        </div>
+    
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/javascript/giffy.js"></script>    
