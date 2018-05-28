@@ -6,24 +6,37 @@
     <title>GifTastic Homework</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
-    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
 </head>
 <body>
-        <div class="buttons-row">
-            <div id="buttons"></div>
-        </div>
+    <h1></h1>
 
-        <div class="left-column">
-            <div class="images"></div>    
-        </div>
+        <div class="container">
+            <h2>Click a button below to view ten images of that animal or enter the name of 
+                an animal on the right to create a new button. Click the new button to view 
+                images of the animal you added. Click on any of the images to animate. 
+                Click on the image again to stop the animation.</h2>
+                <!-- Dynamically Rendered Buttons -->
+                <div id="buttons-view"></div>
+            
+                <div id="rightColumn">
 
-        <div class="right-column">
-            <p>Add an animal</p>
-            <input type="text" id="user-input"><br>
-            <input id="addGif" type="submit" value="Submit">
-        </div>
+                    <form id="gif-form">
+                    <label form="gif-input">Add an animal</label><br>
+                    <input type="text" id="gif-input"><br>
+                    <input id="add-gif" type="submit" value="Submit">
+                    </form>
+
+                </div>
+                
+                <div id="leftColumn">
+                <!-- Gifs are displayed Here -->
+               
+                    <div class="imageView"></div>
+
+                </div>
+            
+            </div>
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
