@@ -13,16 +13,17 @@ body{
     padding: 25px;
 }
 
+.headerImage{
+    max-width:90%;
+    height: auto;
+    margin-top: 20px;
+}
 h1{
-    height: 70px;
+    text-align: center;
+    height: 80px;
     width: 100%;
-    padding: 20px;
-    background-image: url("../images/giftastic-01.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 500px;
-    background-color: cadetblue;
-    border-bottom: darkcyan 1px solid;
+    background-color: rgb(0, 0, 0);
+    border-bottom: darkcyan 3px solid;
     box-shadow: 1px 2px 6px #a4a4a4;
 }
 
@@ -30,7 +31,7 @@ h2{
     font-size: 11pt;
     line-height:130%;
     font-weight: 100;
-    color: #b0b0b0;
+    color: #8a8a8a;
     padding: 0px 10px 5px 10px;
     margin-bottom: 10px;  
 }
@@ -108,3 +109,27 @@ form{
     width: 100%;
 }
 
+@media screen and (max-width: 640px){
+    .headerImage{
+        margin-top: 25px;
+    }
+
+    #leftColumn{
+        float: left;
+        position: relative;
+        width: 100%;
+    }
+    
+    #rightColumn{
+        width: 100%;
+        position: relative;
+        float: left;
+    }
+
+    #buttons-view{
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
