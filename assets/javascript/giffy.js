@@ -22,7 +22,7 @@ function displayGifImages() {
 $("button").on("click", function() {    
 
     var animal = $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
     animal + "&api_key=uKbPHducH3lIMJpS3SQ3Qa3oqhcS4oSO&limit=10&rating=pg";
 
   $.ajax({
